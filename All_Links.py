@@ -5,4 +5,8 @@ url = "https://www.rtvslo.si/"
 response = requests.get(url)
 bs = BeautifulSoup(response.text, "html.parser")
 
-print(bs.h1) 
+hrefs = bs.find_all("a")
+
+for x in hrefs:
+    print(x.get("href"))
+
